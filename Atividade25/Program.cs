@@ -1,4 +1,4 @@
-﻿int raio, altura, volumeCm3, volumeLitros;
+decimal raio, altura, volumeCm3, volumeLitros;
 
 Console.WriteLine("Digite o raio da base da caixa :");
 raio = Convert.ToInt32(Console.ReadLine());
