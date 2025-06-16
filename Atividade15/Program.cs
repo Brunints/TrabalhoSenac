@@ -1,32 +1,15 @@
-﻿int valorConta, parteCarlos, parteAndre, parteFelipe, reais, centavos;
+decimal totalConta;
+decimal parteCarlos, parteAndre;
+int parteFelipe;
 
-Console.WriteLine("Digite o valor da conta em reais");
-valorConta = Convert.ToInt32(Console.ReadLine());
+Console.Write("Digite o valor total da conta R$ : ");
+totalConta = Convert.ToDecimal(Console.ReadLine());
 
-parteCarlos = (valorConta / 100) / 3 * 100;
+parteFelipe = (int)Math.Ceiling(totalConta / 3);
+decimal restante = totalConta - parteFelipe;
+parteCarlos = restante / 2;
 parteAndre = parteCarlos;
-parteFelipe = valorConta - parteCarlos - parteAndre;
 
-reais = parteCarlos / 100;
-centavos = parteCarlos % 100;
-Console.Write("Carlos deve pagar: R$" + reais + ",");
-if (centavos < 10)
-    Console.WriteLine("0" + centavos);
-else
-    Console.WriteLine(centavos);
-
-reais = parteAndre / 100;
-centavos = parteAndre % 100;
-Console.Write("André deve pagar: R$" + reais + ",");
-if (centavos < 10)
-    Console.WriteLine("0" + centavos);
-else
-    Console.WriteLine(centavos);
-
-reais = parteFelipe / 100;
-centavos = parteFelipe % 100;
-Console.Write("Felipe deve pagar: R$" + reais + ",");
-if (centavos < 10)
-    Console.WriteLine("0" + centavos);
-else
-    Console.WriteLine(centavos);
+Console.WriteLine($"\nCarlos deve pagar: R$ {parteCarlos:F2}");
+Console.WriteLine($"André deve pagar:  R$ {parteAndre:F2}");
+Console.WriteLine($"Felipe deve pagar: R$ {parteFelipe},00");
